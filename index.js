@@ -5,13 +5,12 @@ const cors = require('cors');
 
 const corsOptions = {
     credentials: true,
-    origin: ['http://localhost:5173']
+    origin: '*'
 }
 
 
 app.use(express.json());
-app.use(cors());
-app.use(express.urlencoded({ extended: false }));
+app.use(cors(corsOptions));
 app.use('/api/auth', authRoutes);
 
 const PORT = process.env.PORT || 5000;
